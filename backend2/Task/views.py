@@ -6,7 +6,7 @@ from django.utils import timezone
 from .models import Task
 from .serializers import TaskSerializer
 
-# ...existing code...
+
 
 class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer

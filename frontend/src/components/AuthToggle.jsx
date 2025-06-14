@@ -13,13 +13,13 @@ const AuthToggle = () => {
     reset,
   } = useForm();
 
-  // Define the toggleForm function
+  
   const toggleForm = () => {
     setIsLogin((prev) => !prev);
-    reset(); // Optionally reset the form when toggling
+    reset(); 
   };
 
-  // ...existing code...
+  
 
 const onSubmit = async (data) => {
     try {
@@ -31,7 +31,7 @@ const onSubmit = async (data) => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            username: data.email,  // Django's default User model uses username
+            username: data.email,  
             password: data.password,
           }),
         }
@@ -45,12 +45,12 @@ const onSubmit = async (data) => {
       const response = await res.json();
       
       if (response.access) {
-        // Store tokens properly
+        
         localStorage.setItem("token", response.access);
         localStorage.setItem("refresh_token", response.refresh);
         localStorage.setItem("user", JSON.stringify({
           email: data.email,
-          username: data.email  // Store username as email for consistency
+          username: data.email  
         }));
         
         toast.success("Successfully logged in!");
